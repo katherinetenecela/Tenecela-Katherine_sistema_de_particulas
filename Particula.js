@@ -1,16 +1,17 @@
 class Particula {
   constructor() {
+    this.tamaño = random(10, 50);
     this.estaMuerta = false;
-    this.tiempodeVida = 10;
+    this.tiempodeVida = Math.ceil(random(10, 30));
 
     //tiempo de vida de 10 frames por segundo
 
     this.pos = createVector(width / 2, height / 2);
 
-    this.vel = createVector(0, random(3, 10));
+    this.vel = createVector(0, random(3, 5));
     this.vel.rotate(random(360));
 
-    this.g = createVector(0, 0.5);
+    this.g = createVector(0, 0.1);
   }
 
   //los objetos de forma interna tienen métodos
@@ -28,6 +29,10 @@ class Particula {
 
   //Método = método display
   mostrar() {
-    circle(this.pos.x, this.pos.y, 20);
+    //background(0);
+    //colorstoke(255);
+    Stroke(20);
+    fill(0, 200, 20);
+    circle(this.pos.x, this.pos.y, this.tamaño);
   }
 }
